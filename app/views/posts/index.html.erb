@@ -1,0 +1,8 @@
+<h1>ALL POSTS!</h1>
+<ul>
+  <% @posts.each do |post|%>
+    <li><%= link_to post.title, post_url(post) %></li>
+  <% end %>
+</ul>
+
+<li><%= link_to "Create a post", new_post_url %></li>

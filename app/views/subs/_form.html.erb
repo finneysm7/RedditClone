@@ -1,0 +1,21 @@
+<% action = (sub.persisted? ? sub_url(sub) : subs_url) %>
+<% method = (sub.persisted? ? "PUT" : "POST")%>
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <input type="hidden"
+  name="authenticity_token"
+  value="<%=form_authenticity_token%>">
+
+<label>Title
+  <input type="text" name="sub[title]">
+</label>
+<br>
+
+<label>Description
+  <textarea name="sub[description]"></textarea>
+</label>
+<br>
+
+<% submit_val = (sub.persisted? ? "Edit" : "Create") + " sub!"%>
+<input type="submit" value="<%= submit_val %>">  
+</form >

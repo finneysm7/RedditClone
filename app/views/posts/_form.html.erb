@@ -1,0 +1,28 @@
+<% action = (post.persisted? ? post_url(post) : posts_url) %>
+<% method = (post.persisted? ? "PUT" : "POST")%>
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <input type="hidden"
+  name="authenticity_token"
+  value="<%=form_authenticity_token%>">
+
+<label>Title
+  <input type="text" name="post[title]" value="<%= post.title %>">
+</label>
+<br>
+
+<label>Content
+  <textarea name="post[content]"><%= post.content %></textarea>
+</label>
+<br>
+
+<label>URL
+  <input type="text" name="post[url]" value="<%= post.url %>">
+</label>
+<br>
+
+<input type="hidden" name="post[sub_id]" value="<%= sub.id%>">
+
+<% submit_val = (post.persisted? ? "Edit" : "Create") + " post!"%>
+<input type="submit" value="<%= submit_val %>">  
+</form >

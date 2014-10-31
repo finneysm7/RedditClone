@@ -1,0 +1,8 @@
+<h1>ALL SUBTOPICS!</h1>
+<ul>
+  <% @subs.each do |sub|%>
+    <li><%= link_to sub.title, sub_url(sub) %></li>
+  <% end %>
+</ul>
+
+<li><%= link_to "Create a subtopic", new_sub_url %></li>

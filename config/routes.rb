@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:new]
   end
   
-  resources :posts, except: [:new]
+  resources :posts, except: [:new] do
+    resources :comments, only: [:new]
+  end
 end

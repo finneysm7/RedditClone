@@ -21,7 +21,20 @@
 </label>
 <br>
 
-<input type="hidden" name="post[sub_id]" value="<%= sub.id%>">
+<input type="hidden" name="post[sub_ids][]" value="">
+
+<label> Related Subtopics</label><br>
+<% Sub.all.each do |sub| %>
+<label>
+  <input type="checkbox" 
+    name="post[sub_ids][]" 
+    value="<%= sub.id %>"
+    <%= post.sub_ids.include?(sub.id) ? "checked" : "" %>>
+  <%= sub.title %>
+</label><br>
+<% end %>
+
+
 
 <% submit_val = (post.persisted? ? "Edit" : "Create") + " post!"%>
 <input type="submit" value="<%= submit_val %>">  

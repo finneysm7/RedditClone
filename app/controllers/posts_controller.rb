@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @sub = Sub.find(params[:sub_id]) ###
     render :new
   end
   
@@ -25,7 +24,6 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
-    @sub = Sub.find(@post.sub_id)
     render :edit
   end
   
@@ -47,7 +45,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :content, :url, :sub_id)
+    params.require(:post).permit(:title, :content, :url, :sub_ids => [])
   end
   
 end

@@ -1,0 +1,6 @@
+<%comments.each do |comment|%>
+  <label><%=User.find(comment.user_id).username %></label>
+  <p><%=comment.content%></p>
+  <br>
+  <%= link_to %>
+<%end%>
